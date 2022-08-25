@@ -58,7 +58,7 @@ const Home = ({state,props}) => {
                 <Adsense
                 client="ca-pub-1507048971343506"
                 slot="3051405560"
-                style={{display: 'inline-block',width:300, height:600}}
+                style={{display: 'inline-block',width:970, height:90}}
                 />
                 <Section2/>
                 <Section4/>
