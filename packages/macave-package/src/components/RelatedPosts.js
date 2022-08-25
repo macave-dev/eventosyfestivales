@@ -34,6 +34,8 @@ const RelatedPosts = ({state,actions, props}) => {
     const posts_to_use = Object.values(state.source.post).filter( (post) => 
         post.categories == props.id
     ).slice(-5)
+
+    console.log(props)
     
     const settings = {
         className: "center",
@@ -81,10 +83,12 @@ const RelatedPosts = ({state,actions, props}) => {
         return(
             <Slider {...localSettings} className={localClass}>
                 {data.map((post,id) => {
-                    const formattedDate = dayjs(post.date).format("DD MMMM YYYY");
+
+                    // const formattedDate = dayjs(post.date).format("DD MMMM YYYY");
                     return(
                         <div key = {id}>
-                            <CardContent className='card-content'>
+
+                            {/* <CardContent className='card-content'>
                                 <div className='card__background--wrap'>
                                     <div className='card__background' style={{backgroundImage: `url(${post.jetpack_featured_media_url})`}}></div>
                                 </div>
@@ -102,7 +106,7 @@ const RelatedPosts = ({state,actions, props}) => {
                                         </li>
                                     </ul>
                                 </CardContentInfo>
-                            </CardContent>
+                            </CardContent> */}
                         </div>
                         
                     )

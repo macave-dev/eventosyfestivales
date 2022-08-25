@@ -10,7 +10,7 @@ import SharePostBar from '../SharePostBar';
 
 import {Adsense} from '@ctrl/react-adsense';
 import GoogleAdSense from 'react-simple-adsense';
-import AdsenseSEO from '../SEO/AdsenseSEO';
+
 
 
 const Post = ({state, libraries,actions,link}) => {
@@ -39,38 +39,6 @@ const Post = ({state, libraries,actions,link}) => {
     }
   })
 
-
-  const [counter,setCounter] = useState(0)
-  const increaseCounter = () => {
-    setCounter( counter + 1 )
-  }
-
-  const slideAds = [
-    '/21802911858/Anuncios-AdSense-SeUno-300x600-Interna',
-    '/21802911858/Anuncios-AdSense-SeUno-300x600-Interna-2',
-    '/21802911858/Anuncios-AdSense-SeUno-300x600-Interna-3',
-    '/21802911858/Anuncios-AdSense-SeUno-300x600-Interna-4',
-    '/21802911858/Anuncios-AdSense-SeUno-300x600-Interna-5',
-  ]
-
-  const finalPageRef = useRef()
-  useEffect(() => {
-    const handleScroll = () => {
-      const div = finalPageRef.current;
-      const {y} = div.getBoundingClientRect();
-      if(y> 0 && y < 6){
-        increaseCounter();
-      }
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () =>{
-      window.removeEventListener('scroll', handleScroll);
-    }
-  },[counter,setCounter])
-
-
-
-
   const Html2React = libraries.html2react.Component
 
   const data = state.source.get(link);
@@ -80,7 +48,7 @@ const Post = ({state, libraries,actions,link}) => {
   const content_split = content.split('<p>Twitter</p>')
 
     return (
-      <div ref = {finalPageRef} >
+      <div >
          
          <Head>
          
@@ -225,7 +193,7 @@ const Post = ({state, libraries,actions,link}) => {
 
 
               </Content>
-                <RelatedPosts props = {category_post}/>
+                {category_post ? <RelatedPosts props = {category_post}/> : null }
               <Content>
 
               <LeftSide>
